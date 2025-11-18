@@ -1,0 +1,54 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // Flutter Gradle Plugin must be applied after Android/Kotlin plugins
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services" // Firebase plugin
+}
+
+android {
+    namespace = "com.example.DermaCare_app"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        // ✅ Use Java 17 for AGP 8+
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+        // ✅ Enable core library desugaring
+        coreLibraryDesugaringEnabled true
+    }
+
+    kotlinOptions {
+        // ✅ Use JVM 17 target
+        jvmTarget = "17"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.DermaCare_app"
+        minSdk = flutter.minSdkVersion
+        targetSdk = 34
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation 'com.google.firebase:firebase-messaging'
+
+    // ✅ Required for flutter_local_notifications (Java 8+ APIs)
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
+}

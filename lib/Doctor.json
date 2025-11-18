@@ -1,0 +1,449 @@
+{
+  "doctors": [
+    {
+      "hospitalId": "DC_1",
+      "service": "SkinCare",
+      "hospital": {
+        "name": "SkinCare Multispecialty Hospital",
+        "address": "123 Wellness Street, Banjara Hills",
+        "city": "Hyderabad",
+        "contactNumber": "+91 98765 43210"
+      },
+      "doctor": {
+        "DoctorId": "DC_1",
+        "name": "Dr. Anjali Mehta",
+        "gender": "Female",
+        "specialization": "Dermato-Genetics",
+        "experienceYears": 12,
+        "qualification": "MD",
+        "focusAreas": [
+          "Genetic Skin Disorders",
+          "Hair Loss Solutions",
+          "Pigmentation Disorders",
+          "Skin Cancer Risk Mapping"
+        ],
+        "availableDays": "Mon - Sat",
+        "availableTimings": "09:00 AM - 05:00 PM",
+        "availableSlots": [
+          { "slot": "09:00 AM", "slotbooked": false },
+          { "slot": "09:30 AM", "slotbooked": false },
+          { "slot": "10:00 AM", "slotbooked": true },
+          { "slot": "10:30 AM", "slotbooked": false },
+          { "slot": "11:00 AM", "slotbooked": false },
+          { "slot": "11:30 AM", "slotbooked": false },
+          { "slot": "12:00 PM", "slotbooked": false },
+          { "slot": "12:30 PM", "slotbooked": false },
+          { "slot": "01:00 PM", "slotbooked": false },
+          { "slot": "01:30 PM", "slotbooked": false },
+          { "slot": "02:00 PM", "slotbooked": false },
+          { "slot": "02:30 PM", "slotbooked": false },
+          { "slot": "03:00 PM", "slotbooked": false },
+          { "slot": "03:30 PM", "slotbooked": false },
+          { "slot": "04:00 PM", "slotbooked": false },
+          { "slot": "04:30 PM", "slotbooked": false },
+          { "slot": "05:00 PM", "slotbooked": false }
+        ],
+        "languagesKnown": ["English", "Hindi", "Telugu"],
+        "profile": "Specializes in diagnosing and treating hereditary skin disorders and improving personalized skincare treatments.",
+        "profileImage": "https://randomuser.me/api/portraits/women/44.jpg",
+        "careerPath": [
+          "Medico Skin Institute",
+          "GlowCare Clinic",
+          "SkinCare Hospital"
+        ],
+        "highlights": [
+          "25+ research papers",
+          "Best Dermatologist South India 2022",
+          "TEDx Speaker"
+        ],
+        "ratings": {
+          "overall": 4.8,
+          "rated": false,
+          "comments": [
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 4,
+              "comment": "Dr. Mehta is amazing! She helped me treat my acne which I’ve been struggling with for years. She explained everything so clearly and the prescription worked like magic within weeks. Highly recommend Derma Care!",
+              "rated": true,
+              "createAt": "2025-03-27T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Satisfied with the consultation. I visited for hair fall treatment and got a clear understanding of the issue. Doctor prescribed a customized solution. Clinic was well-maintained and organized.",
+              "rated": false,
+              "createAt": "2025-03-27T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2025-03-27T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2025-03-27T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor ",
+              "rated": false,
+              "createAt": "2025-03-27T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "fsdfsdfdsfsdfdsfsdfdfds",
+              "rated": false,
+              "createAt": "2025-03-27T10:00:00Z"
+            }
+          ]
+        },
+        "favorites": true,
+        "bookingSlots": ["2024-03-25T10:00:00", "2024-03-25T11:00:00"],
+        "fee": {
+          "treatmentFee": 1500,
+          "inClinicFee": 1200,
+          "videoConsultationFee": 1000
+        },
+        "availablity": true,
+        "status": {
+          "status": "pending",
+          "rejectionReason": null
+        }
+      
+    }
+    },
+
+    {
+      "id": "DC_2",
+      "service": "SkinCare",
+      "hospital": {
+        "name": "GlowSkin Laser & Aesthetic Center",
+        "address": "45 Jubilee Road, Indiranagar",
+        "city": "Bangalore",
+        "contactNumber": "+91 99876 11223"
+      },
+      "doctor": {
+        "name": "Dr. Rohan Deshmukh",
+        "gender": "Male",
+        "qualification": "MBBS, MD ",
+
+        "specialization": "Cosmetic Dermatology",
+        "experienceYears": 9,
+        "focusAreas": [
+          "Laser Skin Rejuvenation",
+          "Anti-Aging",
+          "Scar Treatment"
+        ],
+        "availableDays": "Tue - Sat",
+        "availableTimings": "10:00 AM - 05:00 PM",
+        "availableSlots": [
+          { "slot": "10:00 AM", "slotbooked": true },
+          { "slot": "10:30 AM", "slotbooked": false },
+          { "slot": "11:00 AM", "slotbooked": false },
+          { "slot": "11:30 AM", "slotbooked": false },
+          { "slot": "12:00 PM", "slotbooked": false },
+          { "slot": "12:30 PM", "slotbooked": false },
+          { "slot": "01:00 PM", "slotbooked": false },
+          { "slot": "01:30 PM", "slotbooked": false },
+          { "slot": "02:00 PM", "slotbooked": false },
+          { "slot": "02:30 PM", "slotbooked": false },
+          { "slot": "03:00 PM", "slotbooked": false },
+          { "slot": "03:30 PM", "slotbooked": false },
+          { "slot": "04:00 PM", "slotbooked": false },
+          { "slot": "04:30 PM", "slotbooked": false },
+          { "slot": "05:00 PM", "slotbooked": false }
+        ],
+        "languagesKnown": ["English", "Hindi", "Marathi"],
+        "profile": "Expert in cosmetic skin care, lasers and rejuvenation treatments.",
+        "profileImage": "https://randomuser.me/api/portraits/men/55.jpg",
+        "careerPath": ["Apollo Skin Dept.", "DermaGlow Bangalore"],
+        "highlights": ["Korean Laser Training", "Vogue Skincare Feature"],
+        "ratings": {
+          "overall": 4.6,
+          "rated": true,
+          "comments": [
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            }
+          ]
+        },
+        "favorites": false,
+        "bookingSlots": ["2024-03-26T11:00:00", "2024-03-26T16:00:00"],
+        "fee": {
+          "treatmentFee": 2000,
+          "inClinicFee": 1800,
+          "videoConsultationFee": 1500
+        },
+        "availablity": true,
+        "status": {
+          "status": "pending",
+          "rejectionReason": null
+        }
+      }
+    },
+
+    {
+      "id": "DC_3",
+      "service": "derma care",
+      "hospital": {
+        "name": "Rainbow Kids & Skin Clinic",
+        "address": "56 Blossom Lane, Anna Nagar",
+        "city": "Chennai",
+        "contactNumber": "+91 98456 78900"
+      },
+      "doctor": {
+        "name": "Dr. Fatima Shaikh",
+        "gender": "Female",
+        "qualification": "MBBS, DDVL",
+        "specialization": "Pediatric Dermatology",
+        "experienceYears": 7,
+        "focusAreas": ["Eczema", "Infant Rashes", "Birthmark Management"],
+        "availableDays": "Mon - Sat",
+        "availableTimings": "11:00 AM - 05:00 PM",
+        "availableSlots": [
+          { "slot": "09:00 AM", "slotbooked": false },
+          { "slot": "09:30 AM", "slotbooked": false },
+          { "slot": "10:00 AM", "slotbooked": true },
+          { "slot": "10:30 AM", "slotbooked": false },
+          { "slot": "11:00 AM", "slotbooked": false },
+          { "slot": "11:30 AM", "slotbooked": false },
+          { "slot": "12:00 PM", "slotbooked": false },
+          { "slot": "12:30 PM", "slotbooked": false },
+          { "slot": "01:00 PM", "slotbooked": false },
+          { "slot": "01:30 PM", "slotbooked": false },
+          { "slot": "02:00 PM", "slotbooked": false },
+          { "slot": "02:30 PM", "slotbooked": false },
+          { "slot": "03:00 PM", "slotbooked": false },
+          { "slot": "03:30 PM", "slotbooked": false },
+          { "slot": "04:00 PM", "slotbooked": false },
+          { "slot": "04:30 PM", "slotbooked": false },
+          { "slot": "05:00 PM", "slotbooked": false }
+        ],
+        "languagesKnown": ["English", "Hindi", "Urdu"],
+        "profile": "Provides gentle, expert care for skin conditions in children and infants.",
+        "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
+        "careerPath": ["Rainbow Hospitals", "SkinCare Chennai"],
+        "highlights": ["12 pediatric papers", "NeoDerm Speaker"],
+        "ratings": {
+          "overall": 4.9,
+          "rated": true,
+          "comments": [
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            }
+          ]
+        },
+        "favorites": true,
+        "bookingSlots": ["2024-03-27T09:00:00", "2024-03-27T10:30:00"],
+        "fee": {
+          "treatmentFee": 1200,
+          "inClinicFee": 1000,
+          "videoConsultationFee": 900
+        },
+        "availablity": true,
+        "status": {
+          "status": "rejected",
+          "rejectionReason": "I am not available at the moment."
+        }
+      }
+    },
+
+    {
+      "id": "DC_4",
+      "service": "SkinCare",
+      "hospital": {
+        "name": "HairCraft Trichology Center",
+        "address": "201 MG Road, Camp",
+        "city": "Pune",
+        "contactNumber": "+91 90123 45678"
+      },
+      "doctor": {
+        "name": "Dr. Arvind Rao",
+        "gender": "Male",
+        "qualification": "MD",
+        "specialization": "Trichology",
+        "experienceYears": 10,
+        "focusAreas": ["Hair Transplant", "Hair Fall", "Dandruff"],
+        "availableDays": "Tue - Sat",
+        "availableTimings": "09:00 AM - 05:00 PM",
+        "availableSlots": [
+          { "slot": "11:00 AM", "slotbooked": false },
+          { "slot": "11:30 AM", "slotbooked": false },
+          { "slot": "12:00 PM", "slotbooked": true },
+          { "slot": "12:30 PM", "slotbooked": false },
+          { "slot": "01:00 PM", "slotbooked": false },
+          { "slot": "01:30 PM", "slotbooked": false },
+          { "slot": "02:00 PM", "slotbooked": false },
+          { "slot": "02:30 PM", "slotbooked": false },
+          { "slot": "03:00 PM", "slotbooked": false },
+          { "slot": "03:30 PM", "slotbooked": false },
+          { "slot": "04:00 PM", "slotbooked": false },
+          { "slot": "04:30 PM", "slotbooked": false },
+          { "slot": "05:00 PM", "slotbooked": false }
+        ],
+        "languagesKnown": ["English", "Hindi", "Kannada"],
+        "profile": "Leading hair specialist with expertise in transplant and scalp care.",
+        "profileImage": "https://randomuser.me/api/portraits/men/45.jpg",
+        "careerPath": ["Kaya Skin Clinic", "HairCraft Founder"],
+        "highlights": ["1000+ transplants", "Spain-trained surgeon"],
+        "ratings": {
+          "overall": 4.7,
+          "rated": true,
+          "comments": [
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 5,
+              "comment": "Excellent Doctor, very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            }
+          ]
+        },
+        "favorites": false,
+        "bookingSlots": ["2024-03-28T14:00:00", "2024-03-28T15:30:00"],
+        "fee": {
+          "treatmentFee": 2500,
+          "inClinicFee": 2000,
+          "videoConsultationFee": 1800
+        },
+        "availablity": true,
+        "status": {
+          "status": "pending",
+          "rejectionReason": null
+        }
+      }
+    },
+
+    {
+      "id": "DC_5",
+      "service": "SkinCare",
+      "hospital": {
+        "name": "DermaPlus Clinical Center",
+        "address": "88 Skin Street, Navrangpura",
+        "city": "Ahmedabad",
+        "contactNumber": "+91 81234 56789"
+      },
+      "doctor": {
+        "name": "Dr. Sneha Reddy",
+        "gender": "Female",
+        "qualification": "MBBS",
+        "specialization": "Clinical Dermatology",
+        "experienceYears": 8,
+        "focusAreas": ["Psoriasis", "Vitiligo", "Chronic Eczema"],
+        "availableDays": "Tue - Sat",
+        "availableTimings": "10:00 AM - 05:00 PM",
+        "availableSlots": [
+          { "slot": "10:00 AM", "slotbooked": false },
+          { "slot": "10:30 AM", "slotbooked": false },
+          { "slot": "11:00 AM", "slotbooked": false },
+          { "slot": "11:30 AM", "slotbooked": false },
+          { "slot": "12:00 PM", "slotbooked": false },
+          { "slot": "12:30 PM", "slotbooked": false },
+          { "slot": "01:00 PM", "slotbooked": false },
+          { "slot": "01:30 PM", "slotbooked": false },
+          { "slot": "02:00 PM", "slotbooked": false },
+          { "slot": "02:30 PM", "slotbooked": false },
+          { "slot": "03:00 PM", "slotbooked": false },
+          { "slot": "03:30 PM", "slotbooked": false },
+          { "slot": "04:00 PM", "slotbooked": false },
+          { "slot": "04:30 PM", "slotbooked": false },
+          { "slot": "05:00 PM", "slotbooked": false }
+        ],
+        "languagesKnown": ["English", "Telugu", "Gujarati"],
+        "profile": "Experienced in managing long-term dermatological diseases using medical therapies.",
+        "profileImage": "https://randomuser.me/api/portraits/women/32.jpg",
+        "careerPath": ["NIMS Fellow", "Lead at DermaPlus"],
+        "highlights": ["Vitiligo Campaigner", "Case Study Winner"],
+        "ratings": {
+          "overall": 4.5,
+          "rated": true,
+          "comments": [
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 4,
+              "comment": "very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            },
+            {
+              "userId": "676e6648d8bb6d014787a101",
+              "rating": 4,
+              "comment": "very knowledgeable and caring.",
+              "rated": false,
+              "createAt": "2024-03-29T10:00:00Z"
+            }
+          ]
+        },
+        "favorites": true,
+        "bookingSlots": ["2024-03-29T10:00:00", "2024-03-29T11:30:00"],
+        "fee": {
+          "treatmentFee": 1400,
+          "inClinicFee": 1300,
+          "videoConsultationFee": 1000
+        },
+        "availablity": false,
+        "status": {
+          "status": "pending",
+          "rejectionReason": null
+        }
+      }
+    }
+  ]
+}

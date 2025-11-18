@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    
+    {
+      "name": "DermaCare",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "DermaCare (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "DermaCare (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    },
+    {
+      "name": "DermaCare (Flutter CPH2613)",
+      "program": "lib/main.dart",
+      "request": "launch",
+      "type": "dart"
+    }
+  ]
+}
