@@ -56,9 +56,9 @@ class _BottomNavControllerState extends State<BottomNavController> {
       AppointmentPage(
         mobileNumber: widget.mobileNumber,
       ),
-      OnlineCounsultation(
-        mobileNumber: widget.mobileNumber,
-      ),
+      // OnlineCounsultation(
+      //   mobileNumber: widget.mobileNumber,
+      // ),
       CustomerProfilePage(
         mobileNumber: widget.mobileNumber,
       ),
@@ -129,42 +129,43 @@ class _BottomNavControllerState extends State<BottomNavController> {
                   )),
               label: 'Appointment',
             ),
-            BottomNavigationBarItem(
-              icon: Obx(() => Stack(
-                    children: [
-                      const Icon(Icons.video_call),
-                      if (appointmentcontroller.videoConsultationCountRx.value >
-                          0)
-                        Positioned(
-                          right: 0,
-                          child: Container(
-                            padding: const EdgeInsets.all(2),
-                            decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            constraints: const BoxConstraints(
-                              minWidth: 16,
-                              minHeight: 16,
-                            ),
-                            child: Text(
-                              appointmentcontroller
-                                          .videoConsultationCountRx.value >
-                                      10
-                                  ? '10+'
-                                  : '${appointmentcontroller.videoConsultationCountRx.value}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                    ],
-                  )),
-              label: 'Online Consultation',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Obx(() => Stack(
+            //         children: [
+            //           const Icon(Icons.video_call),
+            //           if (appointmentcontroller.videoConsultationCountRx.value >
+            //               0)
+            //             Positioned(
+            //               right: 0,
+            //               child: Container(
+            //                 padding: const EdgeInsets.all(2),
+            //                 decoration: BoxDecoration(
+            //                   color: Colors.red,
+            //                   borderRadius: BorderRadius.circular(10),
+            //                 ),
+            //                 constraints: const BoxConstraints(
+            //                   minWidth: 16,
+            //                   minHeight: 16,
+            //                 ),
+            //                 child: Text(
+            //                   appointmentcontroller
+            //                               .videoConsultationCountRx.value >
+            //                           10
+            //                       ? '10+'
+            //                       : '${appointmentcontroller.videoConsultationCountRx.value}',
+            //                   style: const TextStyle(
+            //                     color: Colors.white,
+            //                     fontSize: 10,
+            //                   ),
+            //                   textAlign: TextAlign.center,
+            //                 ),
+            //               ),
+            //             ),
+            //         ],
+            //       )),
+            //   label: 'Online Consultation',
+            // ),
+
             BottomNavigationBarItem(
               icon: const Icon(Icons.person_2_outlined),
               label: 'Profile',

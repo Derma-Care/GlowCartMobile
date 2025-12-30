@@ -160,12 +160,13 @@ class _OTPLoginScreenState extends State<OTPLoginScreen> {
             if (isAuthenticated && isFirstTimeAuthenticated) {
               showSnackbar(
                   "Success",
-                  "OTP has been sent successfully to $widget.mobileNumber",
+                  "OTP has been sent successfully to ${widget.mobileNumber}",
                   "success");
 
               Get.offAll(() => BottomNavController(
                     mobileNumber: widget.mobileNumber,
-                    username: widget.fullname ?? '', index: 0,
+                    username: widget.fullname ?? '',
+                    index: 0,
                   ));
             } else {
               Get.to(() => EnableBiometricScreen(
@@ -174,15 +175,17 @@ class _OTPLoginScreenState extends State<OTPLoginScreen> {
                   deviceId: token));
             }
           } else {
-            Get.to(() => RegisterScreen(
-                  fullName: widget.fullname!,
+            Get.offAll(() => BottomNavController(
                   mobileNumber: widget.mobileNumber,
+                  username: widget.fullname ?? '',
+                  index: 0,
                 ));
           }
         } else {
-          Get.to(() => RegisterScreen(
-                fullName: widget.fullname!,
+          Get.offAll(() => BottomNavController(
                 mobileNumber: widget.mobileNumber,
+                username: widget.fullname ?? '',
+                index: 0,
               ));
         }
 
@@ -224,7 +227,7 @@ class _OTPLoginScreenState extends State<OTPLoginScreen> {
             child: Column(
               children: [
                 SizedBox(height: 20),
-                Image.asset('assets/surecare_launcher.png', width: 120),
+                Image.asset('assets/ic_launcher.png', width: 120),
                 SizedBox(height: 24),
                 Text(
                   "Enter the OTP sent to +91-${widget.mobileNumber}",

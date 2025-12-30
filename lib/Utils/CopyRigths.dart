@@ -20,7 +20,7 @@ class Copyrights extends StatelessWidget {
         mainAxisAlignment: alignment,
         children: [
           Text(
-            '© 2025 Derma Care. All rights reserved.',
+            "© 2025 Neha's Glow Kart. All rights reserved.",
             style: style ??
                 TextStyle(
                   fontSize: 14,

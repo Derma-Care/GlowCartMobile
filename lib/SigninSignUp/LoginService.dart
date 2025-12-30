@@ -8,13 +8,14 @@ import '../Utils/ShowSnackBar.dart';
 // import 'BaseUrl.dart';
 
 class LoginApiService {
-  final String endpoint = "customers/login";
+  final String endpoint = "VerifyUserCredentialsAndGenerateAndSendOtp";
   //  'registerOrLogin'; //VerifyUserCredentialsAndGenerateAndSendOtp
 
   Future<Map<String, dynamic>> sendUserDataWithFCMToken(
       String fullname, String mobileNumber, String token) async {
     print("response for fullname ${fullname}");
     print("response for mobileNumber ${mobileNumber}");
+    print("response for mobileNumber ${token}");
 
     try {
       if (token == null) {
@@ -24,20 +25,20 @@ class LoginApiService {
 
       final body = {
         'userName': fullname,
-        'password': mobileNumber,
+        'mobileNumber': mobileNumber,
         'deviceId': token,
       };
 
       print("body.toString() : ${body.toString()}");
-      print("loginUrl : $clinicUrl/$endpoint");
+      print("loginUrl : $registerUrl/$endpoint");
 
       // Send user data and FCM token to backend
       final response = await http.post(
-        Uri.parse('$clinicUrl/$endpoint'),
+        Uri.parse('$registerUrl/$endpoint'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
           'userName': fullname,
-          'password': mobileNumber,
+          'mobileNumber': mobileNumber,
           'deviceId': token,
         }),
       );

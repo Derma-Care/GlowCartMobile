@@ -261,6 +261,7 @@
 import 'dart:async';
 import 'package:cutomer_app/SigninSignUp/BiometricAuthScreen.dart';
 import 'package:cutomer_app/SigninSignUp/LoginScreen.dart';
+import 'package:cutomer_app/Utils/Constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
@@ -363,9 +364,26 @@ class _SplashScreenState extends State<SplashScreen>
               ),
             );
           },
-          child: Image.asset(
-            'assets/ic_launcher.png',
-            height: 150,
+          child: Column(
+            mainAxisSize:
+                MainAxisSize.min, // Prevents Column from taking full height
+            mainAxisAlignment:
+                MainAxisAlignment.center, // Centers content vertically
+            children: [
+              Image.asset(
+                'assets/ic_launcher.png',
+                height: 150,
+              ),
+              const SizedBox(
+                  height: 16), // Adds some spacing between image and text
+              Text(
+                "Neha's GlowKart",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: mainColor,
+                    fontSize: 24),
+              )
+            ],
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:cutomer_app/BottomNavigation/BottomNavigation.dart';
 import 'package:cutomer_app/Clinic/AboutClinicController.dart';
+import 'package:cutomer_app/OTP/FireBaseOtp.dart';
 
 import 'package:cutomer_app/SigninSignUp/BiometricPermissionScreen.dart';
 import 'package:cutomer_app/Utils/Constant.dart';
@@ -15,7 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'LoginService.dart';
 
 class SiginSignUpController extends GetxController {
-  var getOTPButton = "SIGN IN".obs;
+  var getOTPButton = "GET OTP".obs;
   var isLoading = false.obs;
   var errorMessage = ''.obs;
   final formKey = GlobalKey<FormState>();
@@ -95,87 +96,76 @@ class SiginSignUpController extends GetxController {
   }
 
   void submitForm(BuildContext context) async {
-    final fullname = nameController.text.trim();
+    final fullname = "000101_CR_00005";
     final mobileNumber = mobileController.text.trim();
 
-    if (!formKey.currentState!.validate()) return;
-    if (!agreeToTerms) {
-      errorMessage.value = "Please agree to terms and conditions";
-      return;
-    }
+    if (formKey.currentState!.validate() && agreeToTerms) {
+      getOTPButton.value = "Signing...";
+      isLoading.value = true;
 
-    getOTPButton.value = "Signing...";
-    isLoading.value = true;
+      await Future.delayed(const Duration(seconds: 2));
 
-    try {
-      String? token = await FirebaseMessaging.instance.getToken();
-      final id = await FirebaseInstallations.instance.getId();
-      final deviceid = await FirebaseInstallations.instance.getToken();
+      try {
+        String? token = await FirebaseMessaging.instance.getToken();
 
-      final response = await _loginapiService.sendUserDataWithFCMToken(
-        fullname,
-        mobileNumber,
-        token ?? "",
-      );
+        final id = await FirebaseInstallations.instance.getId();
+        final deviceid = await FirebaseInstallations.instance.getToken();
+        print('Installation ID: $id');
+        // FCM Token (used for sending push notifications)
+        final fcmToken = await FirebaseMessaging.instance.getToken();
 
-      if (response['status'] == 200) {
-        final data = response['data'];
-        final prefs = await SharedPreferences.getInstance();
+        print('FCM Token1: $fcmToken');
+        print("FCM Token: $token");
+        print("FCM deviceid: $deviceid");
 
-        await prefs.setString('userName', data['userName'] ?? "");
-        await prefs.setString('customerName', data['customerName'] ?? "");
-        await prefs.setString('customerId', data['customerId'] ?? "");
-        await prefs.setString('patientId', data['patientId'] ?? "");
-        await prefs.setString('deviceId', data['deviceId'] ?? "");
-        await prefs.setString('hospitalName', data['hospitalName'] ?? "");
-        await prefs.setString('hospitalId', data['hospitalId'] ?? "");
-        await prefs.setString('branchId', data['branchId'] ?? "");
-        await prefs.setString('mobileNumber', mobileNumber ?? "");
-        await prefs.setString('fcm', token ?? "");
+        // Optional: Listen for token refresh
+        FirebaseMessaging.instance.onTokenRefresh.listen((newToken) {
+          print("Token refreshed: $newToken");
+          // You could resend the token here if needed
+        });
+        final response = await _loginapiService.sendUserDataWithFCMToken(
+            fullname, mobileNumber, token ?? "");
 
-        await prefs.setBool('isFirstLoginDone', true);
-        final isFirstTimeAuthenticated =
-            prefs.getBool('isFirstLoginDone') ?? true;
+        if (response['status'] == 200) {
+          getOTPButton.value = "SIGN IN";
 
-        // ✅ NEW: Fetch & Store Location
-        showFetchingLocationDialog(context);
-        await LocationService.fetchAndStoreLocation();
-        Navigator.pop(context);
-        try {
-          await clinicController.fetchClinic(data['hospitalId']);
+          final prefs = await SharedPreferences.getInstance();
 
-          if (clinicController.clinic.value == null) {
-            showSnackbar("Error",
-                "Clinic data not available. Please try again.", "error");
-            return; // stop further navigation
+          await prefs.setString('username', fullname);
+          await prefs.setString('mobileNumber', mobileNumber);
+          await prefs.setString('fcm', token ?? "");
+
+          print("funmnmndhjshdhsa $token");
+          final isAuthenticated = prefs.getBool('isAuthenticated') ?? false;
+          final isFirstTimeAuthenticated =
+              prefs.getBool('isFirstLoginDone') ?? true;
+
+          print("isFirstTimeAuthenticated ${isFirstTimeAuthenticated}");
+
+          // ✅ User is registered
+          if (isFirstTimeAuthenticated) {
+            showSnackbar("Success",
+                "OTP has been sent successfully to $mobileNumber", "success");
+
+            Get.offAll(() => OTPLoginScreen(
+                  mobileNumber: mobileNumber,
+                  fullname: fullname,
+                  deviceId: token,
+                ));
+          } else {
+            Get.to(() => EnableBiometricScreen(
+                  mobileNumber: mobileNumber,
+                  fullname: fullname,
+                ));
           }
-        } catch (e) {
-          showSnackbar(
-              "Error", "Failed to fetch clinic information: $e", "error");
-          return; // stop further navigation
         }
-        // ✅ Navigate after location is stored
-        initializeControllers();
-        if (!isFirstTimeAuthenticated) {
-          Get.offAll(() => BottomNavController(
-                mobileNumber: mobileNumber,
-                username: data['customerName'],
-                index: 0,
-              ));
-        } else {
-          Get.to(() => EnableBiometricScreen(
-                mobileNumber: mobileNumber,
-                fullname: data['customerName'],
-              ));
-        }
+      } catch (e) {
+        print("Error during login: $e");
+        getOTPButton.value = "SIGN IN";
+      } finally {
+        isLoading.value = false;
+        getOTPButton.value = "SIGN IN";
       }
-    } catch (e) {
-      print("Error during login: $e");
-      Navigator.pop(context); // Close dialog if error occurs
-      showSnackbar("Error", "Login failed. Please try again.", "error");
-    } finally {
-      isLoading.value = false;
-      getOTPButton.value = "SIGN IN";
     }
   }
 

@@ -1,3 +1,5 @@
+import 'package:cutomer_app/Dashboard/DashBoardController.dart';
+import 'package:cutomer_app/Utils/CommonCarouselAds.dart';
 import 'package:cutomer_app/Utils/UpperCase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,7 +20,7 @@ class Loginscreen extends StatefulWidget {
 
 class _LoginscreenState extends State<Loginscreen> {
   SiginSignUpController siginSignUpController = SiginSignUpController();
-
+  final dashboardcontroller = Get.put(Dashboardcontroller());
   @override
   void dispose() {
     NetworkService().dispose();
@@ -35,16 +37,35 @@ class _LoginscreenState extends State<Loginscreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.15,
-            ),
-            Image.asset(
-              'assets/ic_launcher.png', // Ensure this path is correct
-              width: 150,
-
-              fit: BoxFit.cover,
+              height: MediaQuery.of(context).size.height * 0.04,
             ),
             SizedBox(
+              width: MediaQuery.of(context).size.width * 0.95,
+              child: CommonCarouselAds(
+                media: dashboardcontroller.carouselImages,
+                height: MediaQuery.of(context).size.height * 0.5,
+              ),
+            ),
+
+            // Image.asset(
+            //   'assets/ic_launcher.png', // Ensure this path is correct
+            //   width: 150,
+
+            //   fit: BoxFit.cover,
+            // ),
+            SizedBox(
               height: 30,
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                "Neha's Glow Kart",
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                  color: mainColor,
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -66,65 +87,16 @@ class _LoginscreenState extends State<Loginscreen> {
                     ),
                     const SizedBox(height: 30.0),
                     CustomTextField(
-                      controller: siginSignUpController.nameController,
-                      labelText: 'Enter Customer Id',
-                      autovalidateMode: AutovalidateMode.onUnfocus,
-                      inputFormatters: [
-                        UpperCaseTextFormatter(), // 👈 add this custom formatter
-                      ],
-                      validator: (value) => siginSignUpController.validatedata(
-                          value, "Customer Id"),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CustomTextField(
                       controller: siginSignUpController.mobileController,
                       labelText: 'Enter Mobile Number',
                       keyboardType: TextInputType.number,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      autovalidateMode: AutovalidateMode.onUnfocus,
                       inputFormatters: [
                         LengthLimitingTextInputFormatter(10),
                         FilteringTextInputFormatter.digitsOnly,
                       ],
                       validator: (value) =>
                           siginSignUpController.validateMobileNumber(value),
-                      onChanged: (_) {
-                        // Revalidate the form when typing
-                        siginSignUpController.formKey.currentState?.validate();
-                      },
-                    ),
-                    const SizedBox(height: 20.0),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 5.0),
-                      child: Row(
-                        children: [
-                          Checkbox(
-                            fillColor:
-                                MaterialStateProperty.all(secondaryColor),
-                            value: siginSignUpController.agreeToTerms,
-                            onChanged: (bool? newValue) {
-                              setState(() {
-                                siginSignUpController.agreeToTerms =
-                                    newValue ?? false;
-                                siginSignUpController.errorMessage.value =
-                                    ""; // Clear error when checkbox is checked
-                              });
-                            },
-                          ),
-                          const Text('I Agree to '),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context)
-                                  .pushNamed('/termsandcondition');
-                            },
-                            child: const Text(
-                              'Terms & Conditions',
-                              style: TextStyle(color: mainColor),
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
                     Obx(() =>
                         siginSignUpController.errorMessage.value.isNotEmpty
@@ -159,15 +131,15 @@ class _LoginscreenState extends State<Loginscreen> {
             SizedBox(
               height: 20,
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).pushNamed('/manualscreen');
-              },
-              child: const Text(
-                'App User Manual',
-                style: TextStyle(color: mainColor),
-              ),
-            ),
+            // GestureDetector(
+            //   onTap: () {
+            //     Navigator.of(context).pushNamed('/manualscreen');
+            //   },
+            //   child: const Text(
+            //     'App User Manual',
+            //     style: TextStyle(color: mainColor),
+            //   ),
+            // ),
           ],
         ),
       ),
